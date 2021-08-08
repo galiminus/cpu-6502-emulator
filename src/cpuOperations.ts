@@ -11,11 +11,6 @@ export const cpuOperations: { [key: number]: CPUOperation } = {
     name: "BRK",
     dataBytes: 1, // one ghost operand, doesn't do anything but the processor treats is as if it does
     func: (cpu) => {
-      // helpful for debugging at the moment
-      console.log("BRK!");
-      // console.log(Array.from(cpu.instructionsUsed).sort().join(";"));
-      process.exit(1);
-
       cpu.triggerIRQB(true); // a brk is a software irqb with the brk processor status set
     },
   },
